@@ -1,0 +1,7 @@
+
+VERIFIED_USER_ID = ''
+TO_NODE_ID = ''
+FINGERPRINT = ''
+CLIENT_ID = ''
+CLIENT_SECRET = ''
+USER_ID = ''
