@@ -15,8 +15,7 @@ class UserTestCases(unittest.TestCase):
 		self.client = Clients(
 			client_id=CLIENT_ID,
 			client_secret=CLIENT_SECRET,
-			is_production=False,
-			ip_address=IP_ADDRESS
+			is_production=False
 		)
 		
 
@@ -73,7 +72,8 @@ class UserTestCases(unittest.TestCase):
 		return Users.create(
 			client=self.client,
 			payload=create_payload,
-			fingerprint=FINGERPRINT
+			fingerprint=FINGERPRINT,
+			ip_address=IP_ADDRESS
 		)
 
 

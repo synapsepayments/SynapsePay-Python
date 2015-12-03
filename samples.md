@@ -14,8 +14,7 @@ from synapse_pay import Clients
 client = Clients(
 	client_id='CLIENT_ID',
 	client_secret='CLIENT_SECRET',
-	is_production=False,
-	ip_address='IP_ADDRESS'
+	is_production=False
 )
 
 ```
@@ -63,16 +62,18 @@ create_payload = {
 create_response = Users.create(
 	client=client,
 	payload=create_payload,
-	fingerprint='FINGERPRINT'
+	fingerprint='FINGERPRINT',
+	ip_address='IP_ADDRESS'
 )
 
 
 # Get User
 
 user = Users.get(
-				client=client,
-				_id=USER_ID,
-				fingerprint='FINGERPRINT'
+	client=client,
+	_id=USER_ID,
+	fingerprint='FINGERPRINT',
+	ip_address='IP_ADDRESS'
 )
 
 # user is an instance of the User object
@@ -156,6 +157,27 @@ file_response = user.update(payload=file_payload)
 
 ```
 
+## User Object
+
+```python
+
+
+# Imports
+
+from synapse_pay import User
+
+
+# Instantiation
+
+user = User(
+	client=client, # a client Object
+	json=response, # SynapsePay JSON user object
+	fingerprint=fingerprint, # their fingerprint
+	ip_address=ip_address # ip address of the user
+)
+
+
+```
 
 ## Node API Calls
 

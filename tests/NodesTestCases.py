@@ -11,8 +11,7 @@ class NodesTestCases(unittest.TestCase):
 		client = Clients(
 			client_id=CLIENT_ID,
 			client_secret=CLIENT_SECRET,
-			is_production=False,
-			ip_address=IP_ADDRESS
+			is_production=False
 		)
 		create_payload = {
 			"logins": [
@@ -37,7 +36,8 @@ class NodesTestCases(unittest.TestCase):
 		self.user = Users.create(
 			payload=create_payload,
 			client=client,
-			fingerprint=FINGERPRINT
+			fingerprint=FINGERPRINT,
+			ip_address=IP_ADDRESS
 		)
 		self.node_id = Nodes.get(user=self.user, client=client)['nodes'][0]['_id']
 		

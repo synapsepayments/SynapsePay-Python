@@ -10,8 +10,7 @@ class UsersTestCases(unittest.TestCase):
 		self.client = Clients(
 			client_id=CLIENT_ID,
 			client_secret=CLIENT_SECRET,
-			is_production=False,
-			ip_address=IP_ADDRESS
+			is_production=False
 		)
 		
 	def test_create_success(self):
@@ -38,7 +37,8 @@ class UsersTestCases(unittest.TestCase):
 		user = Users.create(
 			payload=create_payload,
 			fingerprint=FINGERPRINT,
-			client=self.client
+			client=self.client,
+			ip_address=IP_ADDRESS
 		)
 		self.assertTrue(user.json != None)
 		self.assertTrue(user.oauth_key != None)
@@ -86,9 +86,10 @@ class UsersTestCases(unittest.TestCase):
 			self.assertTrue(error != None)
 
 	def test_get_success(self):
-		user = Users.get(client=self.client, _id=USER_ID, fingerprint=FINGERPRINT)
+		user = Users.get(client=self.client, _id=USER_ID, fingerprint=FINGERPRINT, ip_address=IP_ADDRESS)
 		self.assertTrue(user.json != None)
 		self.assertTrue(user.oauth_key != None)
+		self.assertTrue(user.ip_address == IP_ADDRESS)
 
 	def test_get_error(self):
 		user = Users.get(
@@ -98,6 +99,7 @@ class UsersTestCases(unittest.TestCase):
 		)
 		self.assertTrue(user.json != None)
 		self.assertTrue(user.oauth_key != None)
+		self.assertTrue(user.ip_address == None)
 
 
 if __name__ == '__main__':

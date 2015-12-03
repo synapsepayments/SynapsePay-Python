@@ -10,13 +10,13 @@ class TransactionTestCases(unittest.TestCase):
 		client = Clients(
 			client_id=CLIENT_ID,
 			client_secret=CLIENT_SECRET,
-			is_production=False,
-			ip_address=IP_ADDRESS
+			is_production=False
 		)
 		user = Users.get(
 			_id=VERIFIED_USER_ID,
 			client=client,
-			fingerprint=FINGERPRINT
+			fingerprint=FINGERPRINT,
+			ip_address=IP_ADDRESS
 		)
 		nodes = Nodes.get(user=user, client=client)
 		self.node = Node(json=nodes['nodes'][0], user=user)

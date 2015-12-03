@@ -45,7 +45,7 @@ def get(**kwargs):
 			client=client,
 			path=BASE_PATH,
 			fingerprint='',
-			ip_address=ip_address,
+			ip_address='',
 			query_params=query_params
 		)
 		return response

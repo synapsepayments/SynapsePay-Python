@@ -10,8 +10,7 @@ class NodeTestCases(unittest.TestCase):
 			fingerprint=FINGERPRINT,
 			client_id=CLIENT_ID,
 			client_secret=CLIENT_SECRET,
-			is_production=False,
-			ip_address=IP_ADDRESS
+			is_production=False
 		)
 
 		create_payload = {
@@ -38,7 +37,8 @@ class NodeTestCases(unittest.TestCase):
 		self.user = Users.create(
 			payload=create_payload,
 			fingerprint=FINGERPRINT,
-			client=client
+			client=client,
+			ip_address=IP_ADDRESS
 		)
 		self.node = Nodes.get(user=self.user, client=client)
 		
