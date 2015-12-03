@@ -58,7 +58,7 @@ class TransactionTestCases(unittest.TestCase):
 			"comment":"unit_test"
 		}
 		transaction = transaction.update(payload=update_payload)
-		self.assertTrue('unit_test' in transaction.json['recent_status']['note'])
+		self.assertTrue('unit_test' in transaction['trans']['recent_status']['note'])
 
 
 	def test_cancel_success(self):
