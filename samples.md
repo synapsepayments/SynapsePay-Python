@@ -176,6 +176,8 @@ user = User(
 	ip_address=ip_address # ip address of the user
 )
 
+# A user object uses the json provided to automatically authenticate the user through # the refresh token provided in the json.  You do not need to refresh this object.
+
 
 ```
 
