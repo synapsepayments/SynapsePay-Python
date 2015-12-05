@@ -71,7 +71,7 @@ class User(object):
 			payload=kwargs.get('payload'),
 			ip_address=self.ip_address
 		)
-		if response['http_code'] != '202':
+		if response.get('http_code','200') != '202':
 			self.json = response
 		return response
 
