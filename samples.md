@@ -6,7 +6,7 @@
 
 # Imports
 
-from synapse_pay import Clients
+from synapse_pay import *
 
 
 # Instantiate
@@ -22,11 +22,6 @@ client = Clients(
 ## User API Calls
 
 ```python
-
-
-# Imports
-
-from synapse_pay import Users, User
 
 
 # Get All Users
@@ -59,7 +54,7 @@ create_payload = {
 	}
 }
 
-create_response = Users.create(
+user = Users.create(
 	client=client,
 	payload=create_payload,
 	fingerprint='FINGERPRINT',
@@ -143,7 +138,7 @@ kba_response = user.answer_kba(payload=kba_payload)
 
 # Attach a File
 
-base64 = url_to_base64(url='url_of_file')
+base64 = Helpers.url_to_base64(url='url_of_file')
 
 file_payload = {
 	'doc':{
@@ -289,12 +284,6 @@ success = node.delete()
 
 ```python
 
-
-# Imports
-
-from synapse_pay import Users, User
-
-
 # Get All Transactions
 
 transactions_response = Transactions.get(node=node)
@@ -364,25 +353,20 @@ success = transaction.delete()
 
 ```python
 
-# Imports
-
-from Helpers import *
-
-
 # Base 64 Converters
 
-base64_padded = file_to_base64(path=path)
+base64_padded = Helpers.file_to_base64(path=path)
 
-base64_padded = url_to_base64(url=url)
+base64_padded = Helpers.url_to_base64(url=url)
 
-base64_padded = stream_to_base64(stream=stream)
+base64_padded = Helpers.stream_to_base64(stream=stream)
 
 # base64_padded is a string
 
 
 # HMAC Validation
 
-valid = validate_hmac(
+valid = Helpers.validate_hmac(
 	hmac='HMAC',
 	client_secret='CLIENT_SECRET',
 	client_id='CLIENT_ID',
