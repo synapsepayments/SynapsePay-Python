@@ -138,7 +138,7 @@ kba_response = user.answer_kba(payload=kba_payload)
 
 # Attach a File
 
-base64 = Helpers.url_to_base64(url='url_of_file')
+base_64 = Helpers.url_to_base64(url='url_of_file')
 
 file_payload = {
 	'doc':{
