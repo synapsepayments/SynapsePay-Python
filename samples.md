@@ -193,6 +193,13 @@ nodes = Nodes.get(user=user)
 # nodes is a JSON object
 
 
+# Get a single Node
+
+node = Nodes.get(user=user, _id=NODE_ID)
+
+# node is an instance of the Node class
+
+
 # Add SYNAPSE-US Node
 
 synapse_node_payload = {
