@@ -240,9 +240,9 @@ mfa_payload = {
 	"mfa_answer":"test_answer"
 }
 
-node = Nodes.create(user=user, payload=mfa_payload)
+nodes = Nodes.create(user=user, payload=mfa_payload)
 
-# node is a JSON response if mfa otherwise an instance of the Node class
+# nodes is a JSON response if mfa otherwise an array of Node class instances
 
 
 # Add ACH-US Node through Account and Routing Number Details
