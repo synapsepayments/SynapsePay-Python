@@ -1,5 +1,5 @@
 """Node Object Representation of a SynapsePay Node."""
-import APIClient
+# from synapse_pay import HTTPClient
 
 
 class Node(object):
@@ -24,7 +24,7 @@ class Node(object):
         Returns:
             Node:    self
         """
-        response = APIClient.patch(
+        response = HTTPClient.patch(
             client=self.user.client,
             oauth_key=self.user.oauth_key,
             fingerprint=self.user.fingerprint,
@@ -41,7 +41,7 @@ class Node(object):
         Returns:
             bool: Whether the node was successfully deleted or not.
         """
-        APIClient.delete(
+        HTTPClient.delete(
             client=self.user.client,
             oauth_key=self.user.oauth_key,
             fingerprint=self.user.fingerprint,

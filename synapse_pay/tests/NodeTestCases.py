@@ -1,12 +1,12 @@
 import unittest
-from synapse_pay import Clients, Users, Nodes
+from synapse_pay import HTTPClient, Users, Nodes
 from Helpers import *
 
 
 class NodeTestCases(unittest.TestCase):
 
     def setUp(self):
-        client = Clients(
+        client = HTTPClient(
             fingerprint=FINGERPRINT,
             client_id=CLIENT_ID,
             client_secret=CLIENT_SECRET,

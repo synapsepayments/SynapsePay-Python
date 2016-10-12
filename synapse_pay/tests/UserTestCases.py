@@ -1,7 +1,13 @@
 """Summary"""
 import unittest
+from synapse_pay import APIError
+from synapse_pay import HTTPClient
+from synapse_pay import HTTPClient
+from synapse_pay import Users
+from synapse_pay import Nodes
+from synapse_pay import Transactions
+from synapse_pay import Helpers
 from Helpers import *
-from synapse_pay import Clients, Users, Helpers
 
 
 class UserTestCases(unittest.TestCase):
@@ -13,7 +19,7 @@ class UserTestCases(unittest.TestCase):
             TYPE: Description
         """
         self.file_url = 'https://s3.amazonaws.com/synapse_django/static_assets/marketing/images/synapse_dark.png'
-        self.client = Clients(
+        self.client = HTTPClient(
             client_id=CLIENT_ID,
             client_secret=CLIENT_SECRET,
             is_production=False
@@ -28,9 +34,9 @@ class UserTestCases(unittest.TestCase):
         user = self.create_user()
         doc_payload = {
             "doc": {
-                "birth_day":4,
-                "birth_month":2,
-                "birth_year":1940,
+                "birth_day": 4,
+                "birth_month": 2,
+                "birth_year": 1940,
                 "name_first": "John",
                 "name_last": "doe",
                 "address_street1": "1 Infinite Loop",
@@ -53,7 +59,7 @@ class UserTestCases(unittest.TestCase):
                 {
                     "email": "pythonTest@synapsepay.com",
                     "password": "test1234",
-                    "read_only":False
+                    "read_only": False
                 }
             ],
             "phone_numbers": [
@@ -94,7 +100,7 @@ class UserTestCases(unittest.TestCase):
         kba_payload = {
             "doc": {
                 "question_set_id": doc_response['question_set']['id'],
-                "answers":[
+                "answers": [
                     {"question_id": 1, "answer_id": 1},
                     {"question_id": 2, "answer_id": 1},
                     {"question_id": 3, "answer_id": 1},

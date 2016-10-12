@@ -1,15 +1,15 @@
 import unittest
-from synapse_pay.Clients import Clients
+from synapse_pay.HTTPClient import HTTPClient
 import synapse_pay.Users as Users
 import synapse_pay.Nodes as Nodes
-from synapse_pay.APIClient import APIError
+from synapse_pay.HTTPClient import APIError
 from Helpers import *
 
 
 class NodesTestCases(unittest.TestCase):
 
     def setUp(self):
-        client = Clients(
+        client = HTTPClient(
             client_id=CLIENT_ID,
             client_secret=CLIENT_SECRET,
             is_production=False

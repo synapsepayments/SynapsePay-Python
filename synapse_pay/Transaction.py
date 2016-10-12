@@ -1,5 +1,5 @@
 """Summary"""
-import APIClient
+# from synapse_pay import HTTPClient
 
 
 class Transaction(object):
@@ -23,7 +23,7 @@ class Transaction(object):
         Returns:
             Transaction:    The updated transaction
         """
-        response = APIClient.patch(
+        response = HTTPClient.patch(
             client=self.node.user.client,
             oauth_key=self.node.user.oauth_key,
             fingerprint=self.node.user.fingerprint,
@@ -40,7 +40,7 @@ class Transaction(object):
         Returns:
             bool: True if transaction successfully canceled or False otherwise
         """
-        response = APIClient.delete(
+        response = HTTPClient.delete(
             client=self.node.user.client,
             oauth_key=self.node.user.oauth_key,
             fingerprint=self.node.user.fingerprint,

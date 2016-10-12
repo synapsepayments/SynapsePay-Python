@@ -1,13 +1,15 @@
 import unittest
-from Helpers import *
-from synapse_pay.Clients import Clients
-import synapse_pay.Users as Users
-from synapse_pay.APIClient import APIError
+# from synapse_pay import Helpers
+# from synapse_pay import HTTPClient
+# from synapse_pay import Users
+# from synapse_pay import HTTPClient
+from .TestHelpers import *
+
 
 class UsersTestCases(unittest.TestCase):
 
     def setUp(self):
-        self.client = Clients(
+        self.client = HTTPClient(
             client_id=CLIENT_ID,
             client_secret=CLIENT_SECRET,
             is_production=False
@@ -17,9 +19,9 @@ class UsersTestCases(unittest.TestCase):
         create_payload = {
             "logins": [
                 {
-                "email": "pythonTest@synapsepay.com",
-                "password": "test1234",
-                "read_only":False
+                    "email": "pythonTest@synapsepay.com",
+                    "password": "test1234",
+                    "read_only": False
                 }
             ],
             "phone_numbers": [

@@ -1,13 +1,13 @@
 import unittest
 from Helpers import *
-from synapse_pay import Clients, Users, Nodes, Transactions
+from synapse_pay import HTTPClient, Users, Nodes, Transactions
 from synapse_pay.Node import Node
 
 
 class TransactionTestCases(unittest.TestCase):
 
     def setUp(self):
-        client = Clients(
+        client = HTTPClient(
             client_id=CLIENT_ID,
             client_secret=CLIENT_SECRET,
             is_production=False

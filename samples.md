@@ -11,7 +11,7 @@ from synapse_pay import *
 
 # Instantiate
 
-client = Clients(
+client = Client(
     client_id='CLIENT_ID',
     client_secret='CLIENT_SECRET',
     is_production=False
