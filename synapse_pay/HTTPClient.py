@@ -19,7 +19,8 @@ class HTTPClient(object):
             'client_id': kwargs['client_id'],
             'client_secret': kwargs['client_secret'],
             'fingerprint': kwargs['fingerprint'],
-            'ip_address': kwargs['ip_address']
+            'ip_address': kwargs['ip_address'],
+            'oauth_key': ''
         }
         self.is_production = kwargs.get('is_production', False)
         self.base_url = self.get_base_url()
@@ -58,7 +59,7 @@ class HTTPClient(object):
         client_secret = self.header_config['client_secret']
         fingerprint = self.header_config['fingerprint']
         ip_address = self.header_config['ip_address']
-        oauth_key = self.header_config.get('oauth_key')
+        oauth_key = self.header_config['oauth_key']
 
         headers = {
             'Content-Type': 'application/json',
@@ -70,7 +71,7 @@ class HTTPClient(object):
         return headers
 
     def update_headers(self, **kwargs):
-        """Update header dict with any new key values.
+        """Update header_config dict with any provided values.
         """
         for key in self.header_config:
             if kwargs.get(key):
